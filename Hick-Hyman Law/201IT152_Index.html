@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hick-Hyman law</title>
+    <link rel="stylesheet" href="201IT152_Style.css">
+</head>
+
+<body>
+    <div id="Topic">
+        <div class="text-box">
+            <h1 class="heading-primary">
+                <span class="heading-primary-main">SHOP HERE</span>
+                <span class="heading-primary-sub">Select Sneakers from the Menu</span>
+            </h1>
+        </div>
+    </div>
+
+    <div id="TestCases" style="width: 30%;">
+        <button style="margin-top: 10vw;" onclick="clearTestCases() ; testCase1()"> TEST CASE 1 </button>
+        <button style="margin-top: 5vw;" onclick="clearTestCases() ; testCase2()"> TEST CASE 2 </button>
+        <button style="margin-top: 5vw;" onclick="clearTestCases() ; testCase3()"> TEST CASE 3 </button>    
+    </div>
+
+    <button id="menu" style="margin-top: 20vw; display: none;" onclick="startTimer() ; showMenu() ; this.style.display='none'"> MENU </button>
+
+    <p id="noItem">No Item Added</p>
+    
+    <div id="footwear" style="display: none; width: 30%;">
+        <button 
+            style="margin-top: 10vw;" 
+            onclick="document.getElementById('noItem').style.display='block' ; this.style.display='none' ;
+                    document.getElementById('footwear').style.display='none'">  
+            SANDALS
+        </button>
+        <button 
+            style="margin-top: 5vw;" 
+            onclick="stopTimer() ; results()"> 
+            SNEAKERS 
+        </button>
+        <button 
+            style="margin-top: 5vw;" 
+            onclick="document.getElementById('noItem').style.display='block' ; this.style.display='none' ;
+                    document.getElementById('footwear').style.display='none'"> 
+            HEELS
+        </button>
+    </div>
+
+    <div id="iconFootwear" style="display: none; width: 30%;">
+        <button 
+            style="margin-top: 6vw; background-image: url(./Images/sandals.png); width: 28%; height: 100px; background-size : contain" 
+            onclick="document.getElementById('noItem').style.display='block' ; this.style.display='none' ;
+                    document.getElementById('iconFootwear').style.display='none'">  
+            <!-- SANDALS -->
+        </button>
+        <button 
+            style="margin-top: 5vw; background-image: url(./Images/sneakers.png); width: 28%; height: 100px; background-size : contain" 
+            onclick="stopTimer() ; results()"> 
+            <!-- SNEAKERS  -->
+        </button>
+        <button 
+            style="margin-top: 5vw; background-image: url(./Images/heels.png); width: 28%; height: 100px; background-size : contain" 
+            onclick="document.getElementById('noItem').style.display='block' ; this.style.display='none' ;
+                    document.getElementById('iconFootwear').style.display='none'"> 
+            <!-- HEELS -->
+        </button>
+    </div>
+
+    <div id="alphabetical" style="display: none; width: 30%;">
+        <button 
+            style="margin-top: 10vw;" 
+            onclick="document.getElementById('noItem').style.display='block' ; this.style.display='none' ;
+                    document.getElementById('alphabetical').style.display='none'">  
+            PILLOWS
+        </button>
+        <button 
+            style="margin-top: 5vw;" 
+            onclick="stopTimer() ; results()"> 
+            SNEAKERS
+        </button>
+        <button 
+            style="margin-top: 5vw;" 
+            onclick="document.getElementById('noItem').style.display='block' ; this.style.display='none' ;
+                    document.getElementById('alphabetical').style.display='none'"> 
+            RINGS
+        </button>
+    </div>
+
+    <div id="menu1" style="display: none; width: 30%;">
+        <button 
+            style="margin-top: 7vw;" 
+            onclick="document.getElementById('noItem').style.display='block' ; this.style.display='none' ; 
+                    document.getElementById('menu1').style.display='none'"> 
+            HOME 
+        </button>
+        <button 
+            style="margin-top: 5vw;" 
+            onclick="document.getElementById('noItem').style.display='block' ; this.style.display='none' ; 
+                    document.getElementById('menu1').style.display='none'"> 
+            ACCESSORIES 
+        </button>
+        <button 
+            style="margin-top: 5vw;" 
+            onclick="document.getElementById('footwear').style.display='block' ; this.style.display='none' ; 
+                    document.getElementById('menu1').style.display='none'"> 
+            FOOTWEAR 
+        </button>
+        <button 
+            style="margin-top: 5vw;" 
+            onclick="document.getElementById('noItem').style.display='block' ; this.style.display='none' ; 
+                    document.getElementById('menu1').style.display='none'"> 
+            CLOTHES 
+        </button>
+    </div>
+
+    <div id="menu2" style="display: none; width: 30%;">
+        <button
+            style="margin-top: 14vw; background-image: url(./Images/home.png); width: 18%; height: 70px; background-size : contain" 
+            onclick="document.getElementById('noItem').style.display='block' ; this.style.display='none' ; 
+                    document.getElementById('menu2').style.display='none'"> 
+            <!-- HOME -->
+        </button>
+        <button 
+            style="margin-top: 5vw; background-image: url(./Images/accessories.png); width: 18%; height: 70px; background-size : contain" 
+            onclick="document.getElementById('noItem').style.display='block' ; this.style.display='none' ; 
+                    document.getElementById('menu2').style.display='none'"> 
+            <!-- ACCESSORIES  -->
+        </button>
+        <button 
+            style="margin-top: 5vw; background-image: url(./Images/footwear.png); width: 18%; height: 70px; background-size : contain" 
+            onclick="document.getElementById('iconFootwear').style.display='block' ; this.style.display='none' ; 
+                    document.getElementById('menu2').style.display='none'"> 
+            <!-- FOOTWEAR  -->
+        </button>
+        <button 
+            style="margin-top: 5vw; background-image: url(./Images/clothes.png); width: 18%; height: 70px; background-size : contain" 
+            onclick="document.getElementById('noItem').style.display='block' ; this.style.display='none' ; 
+                    document.getElementById('menu2').style.display='none'"> 
+            <!-- CLOTHES  -->
+        </button>
+    </div>
+
+    <div id="menu3" style="display: none; width: 20%;">
+        <button 
+            style="margin-top: 6vw;" 
+            onclick="document.getElementById('noItem').style.display='block' ; this.style.display='none' ; 
+                    document.getElementById('menu3').style.display='none'"> 
+            A-E
+        </button>
+        <button 
+            style="margin-top: 5vw;" 
+            onclick="document.getElementById('noItem').style.display='block' ; this.style.display='none' ; 
+                    document.getElementById('menu3').style.display='none'"> 
+            F-L
+        </button>
+        <button 
+            style="margin-top: 5vw;" 
+            onclick="document.getElementById('alphabetical').style.display='block' ; this.style.display='none' ; 
+                    document.getElementById('menu3').style.display='none'"> 
+            M-S
+        </button>
+        <button 
+            style="margin-top: 5vw;" 
+            onclick="document.getElementById('noItem').style.display='block' ; this.style.display='none' ; 
+                    document.getElementById('menu3').style.display='none'"> 
+            T-Z
+        </button>
+    </div>
+
+    <div id="results" style="display: none; width: 30%;">
+        <p id="actualReactionTime" style="margin-top: 20vw; margin-left: 5vw;"></p>
+        <p id="entropy" style="margin-top: 3vw; margin-left: 5vw;"></p>
+        <!-- Actual Reaction Time = ;
+        Reaction Time using Hick's Law = ; -->
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"> </script>
+    <script src="201IT152_script.js"> </script>
+</body>
+</html>

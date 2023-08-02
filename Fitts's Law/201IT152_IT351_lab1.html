@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Fitt's Law</title>
+    </head>
+    <style>
+        body{
+            background-color: rgb(255, 255, 255);
+            overflow-x: hidden;
+            overflow-y: hidden;
+        }
+
+        button {
+            border: none;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            cursor: pointer;
+            margin-left: 46vw; 
+            margin-top: 15vw; 
+            background-color: #04AA6D;
+        }
+
+        #circle {
+            width: 100px;
+            height: 100px;
+            background: transparent;
+            border-radius: 1000px;
+        }
+
+        #area {
+            width: 500px;
+            height: 1000px;
+            border: 5px solid rgb(10, 11, 17);
+            padding: 50px;
+            margin: 20px;
+            margin-top: 10vw;
+        }
+
+        #div1 { 
+            height: 50px; 
+            width: 300px; 
+            border: 2px solid black;  
+        } 
+        .box{
+            background: green;
+            border: 1px solid #ccc;
+            color: white;
+        }
+
+        .text-box {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align:center;
+        }
+
+        .heading-primary {
+            color:#333;
+            text-transform: uppercase;
+        }
+
+        .heading-primary-main {
+            display: block;
+            font-size: 30px;
+            font-weight: 400;
+            letter-spacing: 35px;
+            color: rgb(11, 45, 74);
+        /*  Animation decalaration   */
+            animation-name: moveInleft;
+            animation-duration: 3s;
+        }
+
+        .heading-primary-sub {
+            display: block;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 15.9px;
+            color: rgb(30, 66, 98);
+        
+            animation-name: moveInRight;
+            animation-duration: 3s;
+        }
+
+        @keyframes moveInleft {
+            0% {
+                opacity: 0;
+                transform: translateX(-100px);
+            }
+
+            80% {
+                transform: translateX(10px);
+            }
+            100% {
+                opacity: 1;
+                transform: translate(0);
+            }
+        }
+
+        @keyframes moveInRight {
+            0% {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+
+            80% {
+                transform: translateX(-10px);
+            }
+            
+            100% {
+                opacity: 1;
+                transform: translate(0);
+            }
+
+        }
+
+        .results {
+            display: none;
+        }
+
+        #canvas {
+            display: inline;
+            background-color: black;
+        }
+
+        .container {
+            margin-top: 10vw;
+            margin-left: 30vw;
+            height: max-content;
+            width: max-content;
+            background-color: white;
+            padding: 0;
+            border: 5px solid black;
+            display: none;
+        }
+    </style>
+
+    <body>
+        <div id="Heading">
+            <div class="text-box">
+                <h1 class="heading-primary">
+                    <span class="heading-primary-main">FITT'S LAW</span>
+                    <span class="heading-primary-sub">Click on Circles</span>
+                </h1>
+            </div>
+        </div>
+
+        <button onclick="startTimer() ; createCircle() ; this.style.display='none' ; clearHeading()"> START </button>
+        
+        <div id="circle" onclick="calculateTime() ; createCircle()"> </div>
+
+        <div class="container">
+            <div class="results">
+                <div id="analysis">
+                    <div id="info-table" style="height: 10vw; overflow-y: scroll;">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Circle No.</th>
+                                    <th scope="col">Selection Time(s)</th>
+                                    <th scope="col">Target Distance(px)</th>
+                                    <th scope="col">Circle Diameter(px)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="info-table-body"></tbody>
+                        </table>
+                    </div>
+                    <div>
+                        <canvas id="info-graph"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"> </script>
+
+        <script src="201IT152_script.js"> </script>
+    </body>
+</html>
+
+
+
+
